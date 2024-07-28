@@ -7,15 +7,18 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table()
-public class Book {
+@AllArgsConstructor
+@Table(name = "userbooks")
+public class UserBooks {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String book_name;
-    private String isbn_number;
-    private String author;
+    private Long userId;
+    private Long bookId;
+
+    @Column(name = "checked_out")
+    private Boolean checkedOut;
+
 }

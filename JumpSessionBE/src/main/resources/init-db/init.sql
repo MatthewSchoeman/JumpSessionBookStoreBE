@@ -56,10 +56,11 @@ INSERT INTO public.Books (book_name, isbn_number, author) VALUES
 
 -- Create the UserBooks join table
 CREATE TABLE public.UserBooks (
+    id bigserial,
     user_id bigserial,
     book_id bigserial,
-    stats VARCHAR(50),
-    PRIMARY KEY (user_id, book_id),
+    checked_out bool,
+    PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES public.User(id),
     FOREIGN KEY (book_id) REFERENCES public.Books(id)
 );
