@@ -40,11 +40,9 @@ public class AdminControllers {
             return ResponseEntity.noContent().build();
         }
 
-        // Add to join table
         @PutMapping("/add-checkout/")
         public ResponseEntity<UserBooks> checkOutBook(@RequestBody UserBooks newEntry) {
             try {
-//                UserBooks thingy = adminService.addCheckOut(newEntry);
                 return ResponseEntity.ok(adminService.addCheckOut(newEntry));
             }
             catch ( Exception exception ) {
